@@ -1,0 +1,120 @@
+﻿@model TRAVEL_PLANNER.Models.ViewModels.SearchParameter
+@using TRAVEL_PLANNER.Models.Enum
+
+
+@{
+    ViewData["Title"] = "Search Travel Plan";
+}
+
+
+
+@{
+    List<TRAVEL_PLANNER.Models.ViewModels.ResultTravelPlan> resultTravelPlans = ViewBag.Result;
+
+    List<TRAVEL_PLANNER.Models.ViewModels.AssignedActivityData> activities = ViewBag.Activitys;
+
+
+    @if (resultTravelPlans == null)
+    {
+        <h1>LET PLAN YOUR ULTIMATE TRIP</h1>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-md-8">
+                <form asp-action="SearchPlan">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <h3>What's Your Total Budget Minus Flight?</h3>
+                        <select asp-for="Budget" class="form-control" asp-items="Html.GetEnumSelectList<BudgetEnum>()"> </select>
+                        <span asp-validation-for="Budget" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <h3> When Are You Looking To Travel?</h3>
+                        <select asp-for="SeasonName" class="form-control" asp-items="ViewBag.SeasonID">
+                            <option value="" disabled selected> ** Select Your Season **</option>
+                        </select>
+                        <span asp-validation-for="SeasonName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <h3>Would You Rather ?</h3>
+                        <h6>(You Can Select Multiple Answers)</h6>
+                        <div class="col-md-offset-2 col-md-12">
+                            <table>
+                                <tr>
+                                    @{
+                                        int cnt = 0;
+
+                                        foreach (var activity in activities)
+                                        {
+                                            if (cnt++ % 2 == 0)
+                                            {
+                                            @:</tr><tr>
+                                            }
+
+                                            @:<td>
+                                                <input type="checkbox"
+                                                       name="selectedActivities"
+                                                       value="@activity.Id"
+                                                       class="mr-2 ml-3"
+                                                       @(Html.Raw(activity.Assigned ? "checked=\"checked\"" : "")) />
+                                                @: @activity.Name
+                                            @:</td>
+                                        }
+                                    @:</tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Find The Right Destination" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+        else if (resultTravelPlans.Count == 0)
+        {
+            <h1>Search Results ......</h1>
+
+            <hr />
+            <h3>No Travel Place to Met Your Criteria</h3>
+        }
+        else
+        {
+            <h1>Search Results .......</h1>
+
+            <hr />
+
+            @foreach (var items in resultTravelPlans)
+            {
+                <div class="row">
+                    <div class="col-3">
+                        <img class="img-fluid" src="@items.ImageUrl" />
+                    </div>
+                    <div class="col-7">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>@items.Name</h4>
+                            </div>
+                            <div class="col-12">
+                                <h4>@items.Country - @items.State</h4>
+                            </div>
+                            <div class="col-12">
+                                <h4>Open Hours - @items.OperationHour</h4>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" href="#">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+}
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
