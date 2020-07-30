@@ -8,7 +8,7 @@
 
 3) Type the cmd code in order to navigate the folder of TRAVEL_PLANNER <h4>cd TRAVEL_PLANNER</h4>
 
-4) Inside the traffiksample folder type <h4>dotnet restore</h4> Note: Sure that your machine is connected to the internet.
+4) Inside the TRAVEL_PLANNER folder type <h4>dotnet restore</h4> Note: Sure that your machine is connected to the internet.
 
 5) Finally, run this command code <h4>dotnet run</h4>
 
@@ -18,6 +18,6 @@
 
 7) When the Application run successfully. You don't need to repeat the above step again
 
-8) Just navigate to the traffiksample folder and run this command code <h4>dotnet run</h4>
+8) Just navigate to the TRAVEL_PLANNER folder and run this command code <h4>dotnet run</h4>
 
 6) Open your web browser and type this https://localhost:5001
