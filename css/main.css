@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Princess Sofia");
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: Montserrat;
+}
+.header{
+    background-image:-webkit-linear-gradient(rgba(0,0,0,0.25),rgba(0, 0, 0, 0.35)), url("../images/cottages-on-water.jpg");
+    background-size: 100% 100%;
+    height: 600px;
+    background-repeat: no-repeat;
+     flex-wrap: wrap;
+    justify-content: center;
+    align-self: center;
+  text-align:  center;
+  margin-bottom: 50px;
+}
+.top img{
+position: relative;
+ width: 500px;
+}
+.top span{ 
+    position: absolute;
+    padding-top: 40px;
+    width: 180px;
+    font-size: 25px;
+    text-align: center;
+    transform: rotate(-26.52deg);
+    font-family: Princess Sofia;
+}
+ @media screen and (max-width:768px){
+    img{
+        width: 400px;
+       }
+       .header{
+           height: 500px;
+       }
+       .top span{
+           font-size:16px;
+       }
+       .top ul li a{
+           font-size: 14px;
+       }
+       .c1 span,.c2 span{
+        margin-top: 50px;
+        font-size: 14px;
+    }
+    .c2 img{
+        margin-right: 20px;
+    }
+    .c3 img{
+        height: 30px;
+    }
+} 
+.top{display: flex;}
+.top ul {
+ list-style: none;
+ display: flex;
+ flex-direction: row;
+ flex-wrap: nowrap;
+justify-content: space-evenly;
+margin-left: auto;
+padding: 15px; 
+text-transform: uppercase;
+/*    text-transform: inherit; */
+font-family: Lato;
+color: white;
+}
+.top ul li a{
+    color: white;
+    text-decoration: none;
+    
+}
+.top ul li a:hover{
+    color: black;
+    background-color: none;
+}
+.top ul li{
+ padding-right: 30px; 
+}
+.header h1{
+ color: white;
+ font-family: Poppins;
+ font-weight: bolder;
+ margin: auto;
+ overflow: hidden;
+ font-size: 30px;
+ width: 450px;
+ height: 180px;
+}
+.header a{
+ text-decoration: none;
+padding: 15px; 
+color: black;
+cursor: pointer;
+}
+.header a:hover{
+ background-color: white;
+ color: #4dedc0;
+ font-weight: bold;
+}
+.btn{
+ width: 160px;
+ height: 45px;
+ font-size: 14px;
+ border-radius: 20px;
+ border-style: none;
+ cursor: pointer;
+ box-shadow: 0 5px 7px 0 rgba(0,0,0,0.2),0 7px 9px 0 rgba(0,0,0,0.2);
+background-color: #4dedc0;
+}
+.container{
+    width: 100%;
+}
+.c1{
+    width:80% ;
+    margin: auto;
+    height: 266px;
+    background-color: #f5f5f5;
+    margin-bottom: 30px;
+    display: flex;
+    border-radius: 10px;
+}
+.c1 img{
+    padding: 15px 0 0 25px;
+}
+.c2{
+    width:80% ;
+    margin: auto;
+    height: 266px;
+    background-color: #4dedc0;
+    margin-bottom: 40px;
+    display: flex;
+    border-radius: 10px;
+}
+.c2 img{
+    padding-top:15px 25px 0 0;
+    margin-right: 20px;
+}
+.c3{
+    width:100% ;
+    margin: auto;
+    height: 358px;
+    background-color: #f5f5f5;
+    margin-bottom: 60px;
+    display: flex;
+}
+.c3 img{
+    height: 330px;
+    width:400px;
+    padding: 30px 0 0 25px;
+}
+.c3 div{
+    margin-top: 70px;
+    padding: 20px 10px;
+    text-align: center;
+}
+.c3 p{
+    padding: 15px;
+    font-size: 14px;
+}
+hr{
+    width: 50%;
+    margin: auto;
+    margin-top: 8px;
+}
+.c1 span, .c2 span{
+    padding: 10% 10px  ;
+    overflow: hidden;
+}
+.footer{
+    height: 200px;
+    font-size: 15px;
+    width: 100%;
+    background-color: #f5f5f5;
+}
+.c4{
+    padding-top: 15px ;
+    display: flex;
+    height: 70%;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+}
+.dwnlist{
+    color: black;
+}
+.dwnlist li a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+.c5 span a{
+    font-size: 10px;
+    font-style: italic;
+}
+.c6 {
+     display: flex;
+     justify-content: space-around;
+     padding-top: 10px;
+     overflow-y: hidden;
+}
+.c6 li {
+    list-style: none;
+}
+.c6 li a img{
+    max-width: 24px;
+}
+.bottom{
+    height: 30%;
+    text-align: center;
+    font-size: 14px;
+    padding-top: 20px;
+    width: 100%;
+    background-color: #4dedc0;
+}
+@media screen and (max-width:658px){
+    .top img{
+        width: 320px;
+       }
+       .top span{
+        padding-top: 12px;
+        width: 120px;
+       }
+       .header{
+           height: 500px;
+       }
+       .header h1{
+           width: 250px;
+           height: 230px;
+       }
+    
+} 
