@@ -171,3 +171,8 @@ background-color: black;
     background: #51DF70;
 	color: #00891E;
 }
+.planbtn a{
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}
