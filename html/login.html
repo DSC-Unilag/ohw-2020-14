@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <title>Login Page</title>
+</head>
+<style>
+    *{
+        box-sizing: inherit;
+        overflow: hidden;
+        min-width: 1px;
+        min-height: 1px;
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        background-image:-webkit-linear-gradient(rgb(0, 0, 0,0.1),rgba(0,0,0.75)),url("../images/airline.jpg");
+        background-size: 100% 100%;
+        height: 100vh;
+        background-repeat: no-repeat;
+    }
+    
+    .container{
+        background-color: #ffff;
+        font-family: Montserrat;
+        text-align: left;
+        padding: 25px;
+        border-radius: 5px;
+        margin: 100px auto;
+        width: 400px;
+        height: 500px;
+    }
+    .logindets{
+        width: 98%;
+        background-color: white;
+        display: block;
+        height: auto;
+        border: 1px solid #d7dfe3;
+    }
+    input{
+        width: 99.5%;
+        height: 50px;
+        border-style: none;
+        border-color:white ;
+        cursor: text;
+    }
+    button{
+        margin: 15px auto 15px 0;
+        display: block;
+        width: 98%;
+        height: 50px;
+        background-color: #4dedc0;
+        border-style: none;
+        border-radius: 5px;
+    }
+    button:hover{
+        background-color: #3c947bd0;
+        cursor: pointer;
+        color: rgb(2, 61, 17);
+    }
+   form  a{
+       text-align: center;
+       text-decoration: none;
+       color: black;
+       padding-top: 10px;
+       /* font-size: 20px;
+       padding: 14px; */
+         width: 98%;
+         height: 40px;
+         font-style: normal;
+        background-color: #ffff;
+        display: block;
+        border-radius: 5px;
+         border: 1px solid #d7dfe3; 
+    }
+    form a:hover{
+        background-color: #4dedc0;
+        color: #ffff;
+    }
+    a:hover{
+        color: black;
+    }
+    a{
+        color: #4dedc0;
+        font-style:oblique;
+    }
+    label{
+        font-weight: bold;
+    }
+</style>
+<body>
+    <div class="container">
+        <form method="POST" name="myform" class="myform">
+        <label>Your Email</label>
+        <div class="logindets">
+            <input type="email" name="email" data-validate-field="email" id="loginEmail">
+        </div>
+        <label>Password</label>
+        <div class="logindets">
+            <input type="password" name="password" data-validate-field="password" id="loginPsw">
+        </div>
+            <button type="submit" class="signbtn">Sign Up</button>
+        <a href="">Forgot password?</a>
+        </form> <br>
+        <a href="signup.html">No Account? Sign up</a>
+    </div>
+    <script src="../js/node_modules/just-validate/dist/js/just-validate.min.js"></script>
+    <script>
+        new window.JustValidate('.myform', {
+        Rules:{
+            email: {
+                required : true,
+                email: true
+            },
+            password: {
+                required: true,
+                password: true,
+                minLength: 4,
+                maxLength: 8
+            }
+        }
+    });
+    
+    //customize default error messages
+    new window.JustValidate('.myform',{
+        Messages:{
+            required: 'This field is required',
+            email: 'Please, type a valid email',
+            maxLength: 'The field must contain a maximum of :value characters',
+            minLength: 'The field must contain a minimum of :value characters',
+            password: 'Password is not valid',
+            remote: 'Email already exists'
+        },
+    });
+    
+    //color of error message
+    new window.JustValidate('.your-form', {
+    colorWrong: "#B81111"
+});
+    </script>
+</body>
+</html>
