@@ -1,8 +1,66 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using TRAVEL_PLANNER.Data
+
+@inject SignInManager<AppUsers> SignInManager
+@inject UserManager<AppUsers> UserManager
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<section class="header">
+    <div class="top">
+        <img src="/images/Rectangle 1.svg" alt="">
+        <span>Plan the best trips with travel planner</span>
+        <ul>
+            <li><a asp-controller="Account" asp-action="Register" style="color: #4dedc0;">Register</a></li>
+        </ul>
+    </div>
+    <h1>
+        Looking for an interesting place to go with that budget? <br>
+        Let's help you!
+    </h1><br>
+    <a asp-controller="Account" asp-action="Login" class="btn" style="padding:20px">Login To Explore</a>
+</section>
+<section class="container">
+    <div class="c1">
+        <img src="/images/eiffeltower.svg" alt="">
+        <span>Let’s help you look up great touring sites all around you!</span>
+    </div>
+    <div class="c2">
+        <span>Whether you’re on a budget or not, we will let you know the best times to visit these places.</span>
+        <img class="img-fluid" style="width:300px;height:200px;padding-top:25px" src="~/images/woman-on-boat.jpg" alt="a photo-of-woman">
+    </div>
+    <div class="c3">
+        <img src="/images/travel-is-good.jpg" alt="">
+        <div>
+            <span>About Travel Planner </span><hr>
+            <p>
+                Want to go on a trip and don't know where to go or how much it will cost you?
+                <br> Well, we are here for you! We will help you find places of interest in various cities across the world.
+            </p>
+        </div>
+    </div>
+</section>
+<section class="footer">
+    <div class="c4">
+        <ul class="dwnlist">
+            <li><a href="index.html"> Home</a></li>
+            <li><a href="plan.html"> Services</a></li>
+            <li><a href="">Become An Affliate</a></li>
+        </ul>
+        <div class="c5">
+            <span>
+                Travel Planner <br>
+                <a href="">travelplanner@gmail.com</a>
+            </span>
+            <ul class="c6">
+                <li><a href=""><img src="/images/icons8-google-48.png" alt=""></a></li>
+                <li><a href=""><img src="/images/icons8-twitter-64 (1).png" alt=""></a></li>
+                <li><a href=""><img src="/images/icons8-instagram-64 (1).png" alt=""></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="bottom">Copyright &copy; 2020 | Travel Planner</div>
+</section>

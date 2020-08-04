@@ -12,13 +12,13 @@ namespace TRAVEL_PLANNER.Models.Enum
     {
         [Display(Name = "FREE")]
         Free,
-        [Display(Name = "$1000")]
+        [Display(Name = "$10000")]
         OneThousand,
-        [Display(Name = "$2000")]
+        [Display(Name = "$20000")]
         TwoThousand,
-        [Display(Name = "$3000")]
+        [Display(Name = "$30000")]
         ThreeThousand,
-        [Display(Name = "$4000")]
+        [Display(Name = "$40000")]
         FourThousand
     }
 

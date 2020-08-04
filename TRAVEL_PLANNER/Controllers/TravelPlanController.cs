@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using TRAVEL_PLANNER.Models.ViewModels;
 
 namespace TRAVEL_PLANNER.Controllers
 {
+    [Authorize]
     public class TravelPlanController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -17,14 +19,6 @@ namespace TRAVEL_PLANNER.Controllers
         public TravelPlanController(ApplicationDbContext context)
         {
             _context = context;
-        }
-
-        [HttpGet]
-        public IActionResult ResultTravelPlan(List<ResultTravelPlan> resultPlans)
-        {
-            ViewData["Result"] = resultPlans;
-
-            return View();
         }
 
         [HttpGet]
@@ -72,7 +66,7 @@ namespace TRAVEL_PLANNER.Controllers
             ViewData["Activitys"] = viewModel;
         }
         
-        private async void SearchActivies(string[] selectedActivities, SearchParameter parameter)
+        private void SearchActivies(string[] selectedActivities, SearchParameter parameter)
         {
             var selectedActivityHS = new HashSet<string>(selectedActivities);
             
@@ -80,36 +74,42 @@ namespace TRAVEL_PLANNER.Controllers
             {
                 if (selectedActivityHS.Contains(activity.Id.ToString()))
                 {
-                    var items =  await _context.travelPlaces
+                    var items = _context.travelPlaces
                                             .Include(s => s.SeasonTravelBudget)
-                                            .Include(s => s.TravelActivities)
-                                                .ThenInclude(s => s.Activity)
-                                            .Where(s => s.SeasonTravelBudget.Any(s => (s.Budget.Equals(parameter.Budget)) & (s.SeasonId.Equals(parameter.SeasonName))))
-                                                .Where(s => s.TravelActivities.Any(s => s.ActivityId.Equals(activity.Id)))
-                                            .SingleOrDefaultAsync();
+                                                .ThenInclude(s => s.TravelPlace)
+                                                    .ThenInclude(s => s.TravelActivities)
+                                                        .ThenInclude(s => s.Activity)
+                                            .Where(s => s.SeasonTravelBudget.Any(s => (s.Budget.Equals(parameter.Budget)) 
+                                            && s.TravelPlace.TravelActivities.Any(s => s.ActivityId.Equals(activity.Id)) 
+                                            && (s.SeasonId.Equals(parameter.SeasonName))))
+                                            .ToList();
 
                     var findseason = _context.seasons.SingleOrDefault(s => s.Id == parameter.SeasonName);
 
                     var findactivities = _context.activities.SingleOrDefault(s => s.Id == activity.Id);
 
-                    if(items == null)
+                    if (items == null)
                     {
                         continue;
                     }
 
-                    if(resultTravelPlans.Where(s => s.Name.Equals(items.Name)).ToList().Count()  < 1)
+                    foreach(var item in items)
                     {
-                        resultTravelPlans.Add(new ResultTravelPlan
+                        if (resultTravelPlans.Where(s => s.Name.Equals(item.Name)).ToList().Count() < 1)
                         {
-                            Id = items.Id,
-                            ImageUrl = items.ImageUrl,
-                            Name = items.Name,
-                            Country = items.Country,
-                            OperationHour = items.OperationHour,
-                            Season = findseason.Name,
-                            State = items.State,
-                            Activities = findactivities.Name
-                        });
+                            resultTravelPlans.Add(new ResultTravelPlan
+                            {
+                                Id = item.Id,
+                                ImageUrl = item.ImageUrl,
+                                Name = item.Name,
+                                Country = item.Country,
+                                OperationHour = item.OperationHour,
+                                Season = findseason.Name,
+                                State = item.State,
+                                Url = item.Url,
+                                Activities = findactivities.Name
+                            });
+                        }
                     }
                 }
             }

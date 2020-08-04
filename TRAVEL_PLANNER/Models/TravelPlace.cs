@@ -11,6 +11,8 @@ namespace TRAVEL_PLANNER.Models
 
         public string ImageUrl { get; set; }
 
+        public string Url { get; set; }
+
         public CountryEnum Country { get; set; }
 
         public StateEnum State { get; set; }

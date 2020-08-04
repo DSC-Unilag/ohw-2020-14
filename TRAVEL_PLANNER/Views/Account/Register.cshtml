@@ -1,0 +1,41 @@
+﻿@model TRAVEL_PLANNER.Models.AccountViewModel.RegisterViewModel
+
+@{
+    Layout = "_login";
+}
+
+@{
+    ViewData["Title"] = "Account Registration";
+}
+
+<div class="containerbox">
+    <form asp-action="Register">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Email" class="control-label"></label>
+            <input asp-for="Email" class="form-control" placeholder="Email Address"/>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password" class="control-label"></label>
+            <input asp-for="Password" class="form-control" placeholder="Password"/>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmPassword" class="control-label"></label>
+            <input asp-for="ConfirmPassword" class="form-control" placeholder="Retype Password"/>
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Sign Up" class="signbtn" style="background-color: #4dedc0;" />
+        </div>
+        <br />
+        <a asp-action="Login">Already Have an Account? Login in</a>
+    </form>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
