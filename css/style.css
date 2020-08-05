@@ -1,0 +1,204 @@
+/*https://www.figma.com/file/Vsf3JGdZRApUf81Ay2DA46/Untitled?node-id=0%3A1*/
+
+body{
+	background-color:#fff;
+	text-align: center;
+}
+header {
+
+	background:#333;
+	color: #fff;
+	top: 0px;
+	text-align: center;
+	list-style: none;
+	padding-right: 1em;
+	position: fixed;
+	z-index: 999;
+	width: 100%;
+}
+header h2{
+	margin-top: 5px;
+}
+
+#one li a{
+	color: #fff;
+}
+
+nav {
+	display:none;
+}
+nav ul{
+	list-style: none;
+	text-align: left;
+	padding-bottom: 10px;
+}
+
+.nav-toggle:checked ~ nav{
+	display:block;
+}
+
+input{
+	display: none;
+}
+
+.nav-toggle-lab{
+	position: absolute;
+	color: #fff;
+	border:1px;
+	top:0;
+	left:0;
+	margin-top: 20px;
+	margin-left: 1em;
+	display: flex;
+	align-items: center;
+
+}
+
+.nav-toggle-lab span,
+.nav-toggle-lab span::before,
+.nav-toggle-lab span::after{
+	display: block;
+	background:#fff;
+	width: 20px;
+	height: 2px;
+	border-radius: 2px;
+	position: relative;
+}
+
+.nav-toggle-lab span::after,
+.nav-toggle-lab span::before{
+	content: '';
+	position: absolute;
+}
+.nav-toggle-lab span::before{
+	bottom: 4px;
+}
+.nav-toggle-lab span::after{
+	top: 4px;
+}
+
+
+
+
+
+.container{
+	background-color: #fff;
+	color: #000;
+	text-align: center;
+	margin-top: 2px;
+     /*makes the container to be responsive to change in page*/
+}
+.container h3{
+	color: #000;
+	position: relative;
+	margin-top: 40px;
+	top: 30px;
+}
+
+
+.toggle-lab{
+	position:relative;
+	float: left;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+.navbody-toggle-lab{
+	position:relative;
+	left: 115px;
+	top:20px;
+	display: block;
+}
+
+
+.navbody {
+	opacity: 0.945;
+	background: #7FFFD4;
+	height: 430px;
+	width: 300px;
+	display: none;
+	position: absolute;
+	font-weight: 900;	
+	border-radius: 5px;
+	text-align: center;
+}
+
+.navbody ol{
+	list-style: none;
+}
+
+.navbody ol li{
+	margin-top:40px;
+	margin-right: 50px;
+}
+
+.navbody ol li a{
+	color: #fff;
+
+}
+
+
+.toggle:checked ~ .navbody {
+	display:block;
+}
+
+.toggle-lab span,
+.toggle-lab span::before,
+.toggle-lab span::after{
+	display: block;
+	background:#000;
+	width: 20px;
+	height: 2px;
+	border-radius: 2px;
+	position:absolute;
+}
+
+.toggle-lab span::after,
+.toggle-lab span::before{
+	content: '';
+	position: absolute;
+}
+.toggle-lab span::before{
+	bottom: 4px;
+}
+.toggle-lab span::after{
+	top: 4px;
+}
+
+
+
+
+
+
+
+section{
+	height: 100px;
+	margin:20px 0px 20px 0px;
+	background:#F5F5F5;
+	display: flex;
+	align-items: center;
+	text-align: left;
+	border-radius: 40px;
+}
+
+section h4{
+margin:auto;
+font-weight: 500;
+}
+section a{
+	color:#40E0D0;
+}
+
+footer{
+	background-color:#7FFFD4;
+	position: relative;
+	height: 50px;
+	width: 100%;
+	display:flex;
+	align-items: center;
+	text-align: center;
+}
+footer h5{
+	text-align:center;
+	margin:auto;
+}

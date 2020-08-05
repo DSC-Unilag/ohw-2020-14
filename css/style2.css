@@ -1,0 +1,25 @@
+body{
+	background:#333333; 
+}
+
+.container{
+	background: #f2f2f2;
+	margin-top: 60px;
+	border-radius: 10px;
+	padding-bottom: 50px;
+}
+
+
+.button{
+	border-radius: 20px;
+	height:35px;
+}
+#button1{
+	border:2px solid #00e600;
+	background-color: #00e600;
+	color: #fff;
+}
+
+#button1 a{
+	color: #fff;
+}

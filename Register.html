@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<title>Register</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/style2.css">
+	<link rel="stylesheet"  href="fontawesome/css/all.min.css">
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h2>Register</h2>
+			
+		</header>
+
+	
+		<form  action="POST">
+
+			<div class="form-group">
+				<select name="Title"  >
+					<option value="Mr">Mr</option>
+					<option value="Miss">Miss</option>
+					<option value="Mrs">Mrs</option>
+					<option value="Others">Others</option>
+				</select>
+			</div>
+
+			
+			<div class="form-group">
+				<input type="name" class="form-control" name="First-Name" placeholder="First Name">
+			</div>
+			<div class="form-group">
+				<input type="name" class="form-control" name="Middle-Name" placeholder="Middle Name">
+			</div>
+			<div class="form-group">
+				<input type="name" class="form-control" name="Last-Name" placeholder="Last Name">
+			</div>
+
+			<div class="form-group">
+				<input type="date" name="Date" placeholder="Date">
+			</div>
+			<div class="form-group">
+				<input type="radio" value="Male" name="Gender">
+				<label>Male</label>
+			</div>
+			<div class="form-group">
+				<input type="radio" value="female" name="Gender" >
+				<label>Female</label>
+			</div>
+
+
+			<div class="form-group">
+				<label>E-MAIL Address</label>
+				<input type="email" class="form-control" name="Email" placeholder="light@email.com">
+			</div>
+			<div class="form-group">
+				<label>Password</label><br>
+				<input type="password" class="form-control" name="Password" placeholder="******">
+			</div>
+			<div class="form-group">
+				<label>Repeat Password</label><br>
+				<input type="password" class="form-control" name="Password" placeholder="******">
+			</div>
+			
+			<button class="button" id="button1"><a href="Login.html">Join <span>&#187</span></a></button>
+			<h6><a href="Login.html">Have an Account?</a></h6>
+			<br><br>
+		</form>
+	
+	</div>
+</body>
+</html>
